@@ -13,4 +13,15 @@ io.on('connection', client => {
 
         io.emit( 'message', { admin: 'New message'} );
     } );
+
+    client.on( 'broadcast-message', ( payload ) => {
+        //io.emit( 'new-message', payload ); esto emite a todos
+        //los clientes conectados.
+        client.broadcast.emit( 'new-message', payload );
+        /*
+        * Las lineas de arriba emiten a todos menos al 
+        * clientes que emitio el mensaje
+        */
+    } );
+
 });
