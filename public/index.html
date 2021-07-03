@@ -25,6 +25,12 @@
         socket.on('message', function( payload ) {
             console.log( 'Escuchando: ' + payload.admin );
         });
+        
+        //recepción de mensaje de las bandas
+        socket.on('active-bands', function( payload ) {
+            console.clear();
+            console.table( payload );
+        });
 
     </script>
 </body>
